@@ -21,16 +21,19 @@ public class InventoryController : MonoBehaviour
         if (weaponWheelSelected == true)
         {
             anim.SetBool("OpenWeaponWheel", true);
+
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
             anim.SetBool("OpenWeaponWheel", false);
+
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         switch (weaponId)
         {
             case 0:
-                selectedItem.sprite = noImage;
                 break;
 
             case 1:
