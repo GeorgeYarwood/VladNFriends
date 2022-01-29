@@ -39,12 +39,9 @@ public class Pickup : MonoBehaviour
             //If the item can be picked up
             if (hit.collider.tag == "pickup")
             {
-                if (latestOutline != null)
-                {
-                    latestOutline.enabled = false;
-                    latestOutline = null;
-                }
-                
+                latestOutline = hit.collider.gameObject.GetComponent<Outline>();
+                latestOutline.enabled = true;
+
                 if (!holdingItem) 
                 {
                     //Show UI
@@ -61,6 +58,9 @@ public class Pickup : MonoBehaviour
                     currHeldObj.GetComponent<Rigidbody>().isKinematic = true;
                     currHeldObj.transform.parent = pickUpPos;
                     holdingItem = true;
+
+                    currHeldObj.GetComponent<Collider>().enabled = false;
+                    
                     //Show UI
                     pickUpTxt.SetActive(false);
                 }
@@ -71,6 +71,7 @@ public class Pickup : MonoBehaviour
             {
                 latestOutline = hit.collider.gameObject.GetComponent<Outline>();
                 latestOutline.enabled = true;
+                
                 if (Mouse.current.leftButton.wasPressedThisFrame)
                 {
                     int IDToEnable = hit.collider.gameObject.GetComponent<Pickupable>().ID;
@@ -89,12 +90,20 @@ public class Pickup : MonoBehaviour
                 }
                 pickUpTxt.SetActive(false);
             }
+            
             if(Mouse.current.leftButton.wasReleasedThisFrame && holdingItem)
             {
                 //Release
                 currHeldObj.GetComponent<Rigidbody>().isKinematic = false;
                 currHeldObj.transform.parent = null;
+                currHeldObj.GetComponent<Collider>().enabled = true;
                 holdingItem = false;
+                
+                if (latestOutline != null)
+                {
+                    latestOutline.enabled = false;
+                    latestOutline = null;
+                }
             }
 
             
@@ -115,7 +124,7 @@ public class Pickup : MonoBehaviour
     {
         invController.weaponWheelSelected = true;
         controllers[pickedUp].playerHasIt = true;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         invController.weaponWheelSelected = false;
     }
 }
