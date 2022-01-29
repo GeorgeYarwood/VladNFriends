@@ -14,6 +14,8 @@
           <e p="InventoryController.cs" t="Include" />
           <e p="WeaponWheelController.cs" t="Include" />
         </e>
+        <e p="Keypad.cs" t="Include" />
+        <e p="KeyVal.cs" t="Include" />
         <e p="license.txt" t="Include" />
         <e p="Mirror.cs" t="Include" />
         <e p="Pickupable.cs" t="Include" />
@@ -35,6 +37,7 @@
             <e p="Pickup.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
           </e>
+          <e p="KeypadSelect.cs" t="Include" />
           <e p="MirrorSelector.cs" t="Include" />
           <e p="Unity shit" t="Include">
             <e p="BasicRigidBodyPush.cs" t="Include" />

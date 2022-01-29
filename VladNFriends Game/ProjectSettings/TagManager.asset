@@ -10,6 +10,7 @@ TagManager:
   - Pickup
   - pickup
   - InvPickup
+  - Keypad
   layers:
   - Default
   - TransparentFX
