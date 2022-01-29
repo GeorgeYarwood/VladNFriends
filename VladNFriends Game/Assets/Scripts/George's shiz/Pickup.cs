@@ -16,6 +16,10 @@ public class Pickup : MonoBehaviour
     GameObject currHeldObj;
 
     bool holdingItem = false;
+    
+    private Outline latestOutline = null;
+    public List<WeaponWheelController> controllers;
+    public InventoryController invController;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +39,12 @@ public class Pickup : MonoBehaviour
             //If the item can be picked up
             if (hit.collider.tag == "pickup")
             {
+                if (latestOutline != null)
+                {
+                    latestOutline.enabled = false;
+                    latestOutline = null;
+                }
+                
                 if (!holdingItem) 
                 {
                     //Show UI
@@ -56,8 +66,27 @@ public class Pickup : MonoBehaviour
                 }
 
             }
+            
+            else if (hit.collider.tag == "InvPickup")
+            {
+                latestOutline = hit.collider.gameObject.GetComponent<Outline>();
+                latestOutline.enabled = true;
+                if (Mouse.current.leftButton.wasPressedThisFrame)
+                {
+                    int IDToEnable = hit.collider.gameObject.GetComponent<Pickupable>().ID;
+                    Destroy(hit.collider.gameObject);
+                    StartCoroutine(PickedUp(IDToEnable));
+                }
+
+            }
+            
             else 
             {
+                if (latestOutline != null)
+                {
+                    latestOutline.enabled = false;
+                    latestOutline = null;
+                }
                 pickUpTxt.SetActive(false);
             }
             if(Mouse.current.leftButton.wasReleasedThisFrame && holdingItem)
@@ -68,9 +97,25 @@ public class Pickup : MonoBehaviour
                 holdingItem = false;
             }
 
-           
+            
+        }
 
+        else
+        {
+            if (latestOutline != null)
+            {
+                latestOutline.enabled = false;
+                latestOutline = null;
+            }
         }
            
+    }
+
+    IEnumerator PickedUp(int pickedUp)
+    {
+        invController.weaponWheelSelected = true;
+        controllers[pickedUp].playerHasIt = true;
+        yield return new WaitForSeconds(1.0f);
+        invController.weaponWheelSelected = false;
     }
 }

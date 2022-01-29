@@ -26,8 +26,9 @@ public class MirrorSelector : MonoBehaviour
         {
             if (_hit.collider.CompareTag("MirrorStart"))
             {
-                if (Keyboard.current.eKey.wasPressedThisFrame)
+                if (Input.GetKeyDown(KeyCode.E))
                 {
+                    Debug.Log("going to end");
                     GetComponent<PlayerController>().enabled = false;
                     transform.position = _hit.transform.parent.gameObject.GetComponent<Mirror>().endPos.position;
                     //transform.rotation = _hit.transform.parent.gameObject.GetComponent<Mirror>().endPos.rotation;
@@ -41,8 +42,9 @@ public class MirrorSelector : MonoBehaviour
             
             else if (_hit.collider.CompareTag("MirrorEnd"))
             {
-                if (Keyboard.current.eKey.wasPressedThisFrame)
+                if (Input.GetKeyDown(KeyCode.E))
                 {
+                    Debug.Log("going to start");
                     GetComponent<PlayerController>().enabled = false;
                     transform.position = _hit.transform.parent.gameObject.GetComponent<Mirror>().startPos.position;
                     //transform.rotation = _hit.transform.parent.gameObject.GetComponent<Mirror>().startPos.rotation;
