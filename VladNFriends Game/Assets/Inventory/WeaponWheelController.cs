@@ -14,6 +14,9 @@ public class WeaponWheelController : MonoBehaviour
     private bool selected = false;
     public Sprite icon;
 
+    public bool playerHasIt = false;
+    [SerializeField] private Image sprite;
+    [SerializeField] private Button button;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -21,6 +24,18 @@ public class WeaponWheelController : MonoBehaviour
 
     void Update()
     {
+        if (playerHasIt)
+        {
+            sprite.enabled = true;
+            button.interactable = true;
+        }
+        
+        else if (!playerHasIt)
+        {
+            sprite.enabled = false;
+            button.interactable = false;
+        }
+        
         if (selected == true)
         {
             selectedItem.sprite = icon;
@@ -30,25 +45,38 @@ public class WeaponWheelController : MonoBehaviour
 
     public void Selected()
     {
-        selected = true;
-        InventoryController.weaponId = Id;
+        if (playerHasIt)
+        {
+            selected = true;
+            InventoryController.weaponId = Id;
+        }
     }
 
     public void Deselected()
     {
-        selected = false;
-        InventoryController.weaponId = 0;
+        if (playerHasIt)
+        {
+            selected = false;
+            InventoryController.weaponId = 0;
+        }
     }
 
     public void HoverEnter()
     {
-        anim.SetBool("Hover", true);
-        itemText.text = itemName;
+        if (playerHasIt)
+        {
+            anim.SetBool("Hover", true);
+            itemText.text = itemName;
+        }
+        
     }
 
     public void HoverExit()
     {
-        anim.SetBool("Hover", false);
-        itemText.text = "";
+        if (playerHasIt)
+        {
+            anim.SetBool("Hover", false);
+            itemText.text = "";
+        }
     }
 }
