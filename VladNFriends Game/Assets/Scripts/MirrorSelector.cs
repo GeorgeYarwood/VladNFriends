@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class MirrorSelector : MonoBehaviour
 {
-    public Camera mainCam;
-
+    [SerializeField] private float interactDist = 2.0f;
+    
+    private Camera mainCam;
     private Ray _ray;
-
     private RaycastHit _hit;
 
-    public Transform end;
-
-    public Transform start;
+    private Outline latestOutline = null;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +22,7 @@ public class MirrorSelector : MonoBehaviour
     void Update()
     {
         _ray = mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if (Physics.Raycast(_ray, out _hit, 100f))
+        if (Physics.Raycast(_ray, out _hit, interactDist))
         {
             if (_hit.collider.CompareTag("MirrorStart"))
             {
@@ -33,8 +31,12 @@ public class MirrorSelector : MonoBehaviour
                     Debug.Log("TPd to Dark");
                     GetComponent<CharacterController>().enabled = false;
                     transform.position = _hit.transform.parent.gameObject.GetComponent<Mirror>().endPos.position;
+                    
                     GetComponent<CharacterController>().enabled = true;
                 }
+
+                latestOutline = _hit.transform.GetComponent<Outline>();
+                latestOutline.enabled = true;
             }
             
             else if (_hit.collider.CompareTag("MirrorEnd"))
@@ -44,9 +46,30 @@ public class MirrorSelector : MonoBehaviour
                     Debug.Log("TPd to light");
                     GetComponent<CharacterController>().enabled = false;
                     transform.position = _hit.transform.parent.gameObject.GetComponent<Mirror>().startPos.position;
+                    
                     GetComponent<CharacterController>().enabled = true;
-
+                    
                 }
+                
+                latestOutline = _hit.transform.GetComponent<Outline>();
+                latestOutline.enabled = true;
+            }
+            
+            else
+            {
+                if (latestOutline != null)
+                {
+                    latestOutline.enabled = false;
+                    latestOutline = null;
+                }
+            }
+        }
+        else
+        {
+            if (latestOutline != null)
+            {
+                latestOutline.enabled = false;
+                latestOutline = null;
             }
         }
     }
