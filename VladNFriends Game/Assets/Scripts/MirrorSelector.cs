@@ -28,10 +28,9 @@ public class MirrorSelector : MonoBehaviour
             {
                 if (Keyboard.current.eKey.wasPressedThisFrame)
                 {
-                    Debug.Log("TPd to Dark");
                     GetComponent<CharacterController>().enabled = false;
                     transform.position = _hit.transform.parent.gameObject.GetComponent<Mirror>().endPos.position;
-                    
+                    transform.rotation = _hit.transform.parent.gameObject.GetComponent<Mirror>().endPos.rotation;
                     GetComponent<CharacterController>().enabled = true;
                 }
 
@@ -43,10 +42,9 @@ public class MirrorSelector : MonoBehaviour
             {
                 if (Keyboard.current.eKey.wasPressedThisFrame)
                 {
-                    Debug.Log("TPd to light");
                     GetComponent<CharacterController>().enabled = false;
                     transform.position = _hit.transform.parent.gameObject.GetComponent<Mirror>().startPos.position;
-                    
+                    transform.rotation = _hit.transform.parent.gameObject.GetComponent<Mirror>().startPos.rotation;
                     GetComponent<CharacterController>().enabled = true;
                     
                 }
@@ -71,6 +69,25 @@ public class MirrorSelector : MonoBehaviour
                 latestOutline.enabled = false;
                 latestOutline = null;
             }
+        }
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("MirrorStart"))
+        {
+            GetComponent<CharacterController>().enabled = false;
+            transform.position = other.gameObject.transform.parent.gameObject.GetComponent<Mirror>().endPos.position;
+            transform.rotation = other.gameObject.transform.parent.gameObject.GetComponent<Mirror>().endPos.rotation;
+            GetComponent<CharacterController>().enabled = true;
+        }
+        
+        else if (other.gameObject.CompareTag("MirrorEnd"))
+        {
+            GetComponent<CharacterController>().enabled = false;
+            transform.position = other.gameObject.transform.parent.gameObject.GetComponent<Mirror>().startPos.position;
+            transform.rotation = other.gameObject.transform.parent.gameObject.GetComponent<Mirror>().startPos.rotation;
+            GetComponent<CharacterController>().enabled = true;   
         }
     }
     
