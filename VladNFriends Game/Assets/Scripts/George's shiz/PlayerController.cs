@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private bool isSprinting = false;
 
     float xRot = 0;
     float yRot = 0;
 
-    public float sens = 4;
-
-    float moveSpeed = 35;
-    float jumpForce = 1000;
+    [SerializeField] float sens = 4;
+    [SerializeField] float moveSpeed = 35;
+    [SerializeField] float actualMoveSpeed = 35;
+    [SerializeField] float jumpForce = 1000;
+    [SerializeField] float sprintMult = 1.5f;
 
     float jumpTime = 1;
 
@@ -35,27 +37,46 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isSprinting)
+        {
+            actualMoveSpeed = moveSpeed * sprintMult;
+        }
+        else if (!isSprinting)
+        {
+            actualMoveSpeed = moveSpeed;
+        }
+        
         if (Input.GetKey("w"))
         {
-            playerRb.AddForce(playerRb.transform.forward * moveSpeed);
+            playerRb.AddForce(playerRb.transform.forward * actualMoveSpeed);
         }
         if (Input.GetKey("s"))
         {
-            playerRb.AddForce(playerRb.transform.forward * -moveSpeed);
+            playerRb.AddForce(playerRb.transform.forward * -actualMoveSpeed);
         }
 
         if (Input.GetKey("a"))
         {
-            playerRb.AddForce(Vector3.Cross(playerRb.transform.forward, upVec.normalized) * moveSpeed);
+            playerRb.AddForce(Vector3.Cross(playerRb.transform.forward, upVec.normalized) * actualMoveSpeed);
         }
         if (Input.GetKey("d"))
         {
-            playerRb.AddForce(-(Vector3.Cross(playerRb.transform.forward, upVec.normalized) * moveSpeed));
+            playerRb.AddForce(-(Vector3.Cross(playerRb.transform.forward, upVec.normalized) * actualMoveSpeed));
         }
         if (Input.GetKey(KeyCode.Space) && canJump) 
         {
             playerRb.AddForce(playerRb.transform.up * jumpForce);
             StartCoroutine(waitJump());
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isSprinting = true;
+        }
+        
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isSprinting = false;
         }
 
         //Get mouse movements
