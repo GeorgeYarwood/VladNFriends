@@ -8,10 +8,19 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="license.txt" t="Include" />
-        <e p="Materials" t="Include">
-          <e p="Portal.shader" t="Include" />
-        </e>
         <e p="Mirror.cs" t="Include" />
+        <e p="QuickOutline" t="Include">
+          <e p="Readme.txt" t="Include" />
+          <e p="Resources" t="Include">
+            <e p="Shaders" t="Include">
+              <e p="OutlineFill.shader" t="Include" />
+              <e p="OutlineMask.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="Outline.cs" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="George's shiz" t="Include">
             <e p="Level1.cs" t="Include" />
