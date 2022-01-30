@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (keyMoveEnabled) 
         {
@@ -92,7 +92,13 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (mouseMoveEnabled) 
+       
+        
+    }
+
+    private void Update()
+    {
+        if (mouseMoveEnabled)
         {
             //Get mouse movements
             float horizontal = sens * Input.GetAxis("Mouse X");
@@ -107,9 +113,7 @@ public class PlayerController : MonoBehaviour
             playerRb.transform.rotation = Quaternion.Euler(xRot, yRot, 0);
         }
 
-        
     }
-
     IEnumerator waitJump() 
     {
         canJump = false;
