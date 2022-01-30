@@ -10,7 +10,7 @@ public class Mirror : MonoBehaviour
     public GameObject mainCam;
     public GameObject startCam;
     public GameObject endCam;
-    
+
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera");
@@ -18,8 +18,10 @@ public class Mirror : MonoBehaviour
 
     void Update()
     {
-        Vector3 rotation = new Vector3(mainCam.transform.rotation.eulerAngles.x, mainCam.transform.rotation.eulerAngles.y - 180, mainCam.transform.rotation.eulerAngles.z);
+        Vector3 rotation = new Vector3(mainCam.transform.rotation.eulerAngles.x, mainCam.transform.rotation.eulerAngles.y, mainCam.transform.rotation.eulerAngles.z);
         startCam.transform.rotation = Quaternion.Euler(rotation);
+        
+        rotation = new Vector3(mainCam.transform.rotation.eulerAngles.x, mainCam.transform.rotation.eulerAngles.y, mainCam.transform.rotation.eulerAngles.z);
         endCam.transform.rotation = Quaternion.Euler(rotation);
     }
 }

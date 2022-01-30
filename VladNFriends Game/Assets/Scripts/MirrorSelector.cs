@@ -32,7 +32,11 @@ public class MirrorSelector : MonoBehaviour
                     GetComponent<PlayerController>().enabled = false;
                     transform.position = _hit.transform.parent.gameObject.GetComponent<Mirror>().endPos.position;
                     //transform.rotation = _hit.transform.parent.gameObject.GetComponent<Mirror>().endPos.rotation;
+                    
+                    
+                    
                     transform.Rotate(new Vector3(0,-180,0));
+                    //GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(0,-180,0));
                     GetComponent<PlayerController>().enabled = true;
                 }
 
@@ -49,6 +53,7 @@ public class MirrorSelector : MonoBehaviour
                     transform.position = _hit.transform.parent.gameObject.GetComponent<Mirror>().startPos.position;
                     //transform.rotation = _hit.transform.parent.gameObject.GetComponent<Mirror>().startPos.rotation;
                     transform.Rotate(new Vector3(0,-180,0));
+                    //GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(0,-180,0));
                     GetComponent<PlayerController>().enabled = true;
                     
                 }
@@ -76,26 +81,28 @@ public class MirrorSelector : MonoBehaviour
         }
     }
     
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("MirrorStart"))
-        {
-            GetComponent<PlayerController>().enabled = false;
-            transform.position = other.gameObject.transform.parent.gameObject.GetComponent<Mirror>().endPos.position;
-            //transform.rotation = other.gameObject.transform.parent.gameObject.GetComponent<Mirror>().endPos.rotation;
-            transform.Rotate(new Vector3(0,-180,0));
-            GetComponent<PlayerController>().enabled = true;
-        }
-        
-        else if (other.gameObject.CompareTag("MirrorEnd"))
-        {
-            GetComponent<PlayerController>().enabled = false;
-            transform.position = other.gameObject.transform.parent.gameObject.GetComponent<Mirror>().startPos.position;
-            //transform.rotation = other.gameObject.transform.parent.gameObject.GetComponent<Mirror>().startPos.rotation;
-            transform.Rotate(new Vector3(0,-180,0));
-            GetComponent<PlayerController>().enabled = true;   
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("MirrorStart"))
+    //    {
+    //        GetComponent<PlayerController>().enabled = false;
+    //        transform.position = other.gameObject.transform.parent.gameObject.GetComponent<Mirror>().endPos.position;
+    //        //transform.rotation = other.gameObject.transform.parent.gameObject.GetComponent<Mirror>().endPos.rotation;
+    //        transform.Rotate(new Vector3(0,-180,0));
+    //        GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(0,-180,0));
+    //        GetComponent<PlayerController>().enabled = true;
+    //    }
+    //    
+    //    else if (other.gameObject.CompareTag("MirrorEnd"))
+    //    {
+    //        GetComponent<PlayerController>().enabled = false;
+    //        transform.position = other.gameObject.transform.parent.gameObject.GetComponent<Mirror>().startPos.position;
+    //        //transform.rotation = other.gameObject.transform.parent.gameObject.GetComponent<Mirror>().startPos.rotation;
+    //        transform.Rotate(new Vector3(0,-180,0));
+    //        GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(0,-180,0));
+    //        GetComponent<PlayerController>().enabled = true;   
+    //    }
+    //}
     
     void OnDrawGizmos()
     {
