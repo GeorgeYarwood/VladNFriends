@@ -13,19 +13,29 @@ public class Level1 : MonoBehaviour
     PlayerController charController;
     GameObject currPlayer;
 
+    Rigidbody playerRb;
+
     GameObject chair;
 
+    static public bool teleporting;
+
     Animator playAnim;
+
+    public WeaponWheelController ww;
 
     // Start is called before the first frame update
     void Start()
     {
+
         //Find our player and its character controller
         currPlayer = GameObject.FindGameObjectWithTag("Player");
         charController = currPlayer.GetComponent<PlayerController>();
         charController.enabled = false;
         playAnim = currPlayer.GetComponentInChildren<Animator>();
         chair = GameObject.FindGameObjectWithTag("chair");
+        playerRb = currPlayer.GetComponent<Rigidbody>();
+        PlayerController.mouseMoveEnabled = false;
+
         StartCoroutine(waitForAnim());
     }
 
@@ -39,27 +49,50 @@ public class Level1 : MonoBehaviour
     }
 
 
-    IEnumerator waitForReset() 
-    {
-        yield return new WaitForSeconds(0.1f);
+   
 
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
-        if (inMirrorRoom && !isFree) 
+        
+        if (inNormalRoom && !isFree) 
+        {
+            PlayerController.keyMoveEnabled = false;
+
+            //If player has the knife
+            if (ww.playerHasIt)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    RaycastHit hit;
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                    if (Physics.Raycast(ray,out hit))
+                    {
+                        if (hit.transform.name == "chains") 
+                        {
+                            hit.transform.gameObject.SetActive(false);
+                            isFree = true;
+                        }
+                    }
+                }
+
+            }
+
+        }
+        else if (inMirrorRoom && !isFree)
         {
             PlayerController.keyMoveEnabled = true;
 
         }
-        else if(inNormalRoom && !isFree) 
+        if (isFree) 
         {
-            PlayerController.keyMoveEnabled = false;
-            currPlayer.transform.position = chair.transform.position;
+            PlayerController.mouseMoveEnabled = true;
+            PlayerController.keyMoveEnabled = true;
 
         }
-
     }
    
 
