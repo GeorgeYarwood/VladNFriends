@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody playerRb;
 
+    static public bool keyMoveEnabled;
+    static public bool mouseMoveEnabled;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,66 +33,76 @@ public class PlayerController : MonoBehaviour
 
         //Hide and lock cursor
         Cursor.lockState = CursorLockMode.Locked;
-
+        //keyMoveEnabled = true;
+        //mouseMoveEnabled = true; 
         canJump = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isSprinting)
+        if (keyMoveEnabled) 
         {
-            actualMoveSpeed = moveSpeed * sprintMult;
+            if (isSprinting)
+            {
+                actualMoveSpeed = moveSpeed * sprintMult;
+            }
+            else if (!isSprinting)
+            {
+                actualMoveSpeed = moveSpeed;
+            }
+
+            if (Input.GetKey("w"))
+            {
+                playerRb.AddForce(playerRb.transform.forward * actualMoveSpeed);
+            }
+            if (Input.GetKey("s"))
+            {
+                playerRb.AddForce(playerRb.transform.forward * -actualMoveSpeed);
+            }
+
+            if (Input.GetKey("a"))
+            {
+                playerRb.AddForce(Vector3.Cross(playerRb.transform.forward, upVec.normalized) * actualMoveSpeed);
+            }
+            if (Input.GetKey("d"))
+            {
+                playerRb.AddForce(-(Vector3.Cross(playerRb.transform.forward, upVec.normalized) * actualMoveSpeed));
+            }
+            if (Input.GetKey(KeyCode.Space) && canJump)
+            {
+                playerRb.AddForce(playerRb.transform.up * jumpForce);
+                StartCoroutine(waitJump());
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                isSprinting = true;
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                isSprinting = false;
+            }
+
         }
-        else if (!isSprinting)
+
+        if (mouseMoveEnabled) 
         {
-            actualMoveSpeed = moveSpeed;
+            //Get mouse movements
+            float horizontal = sens * Input.GetAxis("Mouse X");
+            float vertical = sens * Input.GetAxis("Mouse Y");
+
+
+            //Assign and invert Y axis
+            xRot += Input.GetAxis("Mouse Y") * -sens;
+            yRot += Input.GetAxis("Mouse X") * sens;
+
+            //Apply rotation to rigidbody
+            playerRb.transform.rotation = Quaternion.Euler(xRot, yRot, 0);
         }
+
         
-        if (Input.GetKey("w"))
-        {
-            playerRb.AddForce(playerRb.transform.forward * actualMoveSpeed);
-        }
-        if (Input.GetKey("s"))
-        {
-            playerRb.AddForce(playerRb.transform.forward * -actualMoveSpeed);
-        }
-
-        if (Input.GetKey("a"))
-        {
-            playerRb.AddForce(Vector3.Cross(playerRb.transform.forward, upVec.normalized) * actualMoveSpeed);
-        }
-        if (Input.GetKey("d"))
-        {
-            playerRb.AddForce(-(Vector3.Cross(playerRb.transform.forward, upVec.normalized) * actualMoveSpeed));
-        }
-        if (Input.GetKey(KeyCode.Space) && canJump) 
-        {
-            playerRb.AddForce(playerRb.transform.up * jumpForce);
-            StartCoroutine(waitJump());
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            isSprinting = true;
-        }
-        
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            isSprinting = false;
-        }
-
-        //Get mouse movements
-        float horizontal = sens * Input.GetAxis("Mouse X");
-        float vertical = sens * Input.GetAxis("Mouse Y");
-
-
-        //Assign and invert Y axis
-        xRot += Input.GetAxis("Mouse Y") * -sens;
-        yRot += Input.GetAxis("Mouse X") * sens;
-
-        //Apply rotation to rigidbody
-        playerRb.transform.rotation = Quaternion.Euler(xRot, yRot, 0);
     }
 
     IEnumerator waitJump() 
