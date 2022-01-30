@@ -11,6 +11,10 @@ TagManager:
   - pickup
   - InvPickup
   - Keypad
+  - chair
+  - mirror
+  - normal
+  - chain
   layers:
   - Default
   - TransparentFX
