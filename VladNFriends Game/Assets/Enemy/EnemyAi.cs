@@ -22,7 +22,7 @@ public class EnemyAi : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(target.transform.position, gameObject.transform.position) > 1.5f)
+        if (Vector3.Distance(target.transform.position, gameObject.transform.position) > 5.0f)
         {
             agent.SetDestination(target.position);
 
@@ -31,9 +31,10 @@ public class EnemyAi : MonoBehaviour
         else
         {
             anim.SetBool("IsWalking", false);
+        }
 
-            agent.SetDestination(transform.position);
-
+        if(Vector3.Distance(target.transform.position, gameObject.transform.position) < 1.5f)
+        {
             Debug.Log("i catch");
 
             Scene scene = SceneManager.GetActiveScene();
