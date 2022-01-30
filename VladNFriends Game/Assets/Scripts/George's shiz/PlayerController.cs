@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         yRot += Input.GetAxis("Mouse X") * sens;
 
         //Apply rotation to rigidbody
-        playerRb.transform.localRotation = Quaternion.Euler(xRot, yRot, 0);
+        playerRb.transform.rotation = Quaternion.Euler(xRot, yRot, 0);
     }
 
     IEnumerator waitJump() 
