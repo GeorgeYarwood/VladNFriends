@@ -31,9 +31,16 @@
             <e p="Outline.cs" t="Include" />
           </e>
         </e>
+        <e p="Quit.cs" t="Include" />
+        <e p="Scenes" t="Include">
+          <e p="unlockInnit.cs" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
           <e p="DragNDrop.cs" t="Include" />
           <e p="George's shiz" t="Include">
+            <e p="endLevel.cs" t="Include" />
+            <e p="inMirrorRoom.cs" t="Include" />
+            <e p="inNormalRoom.cs" t="Include" />
             <e p="Level1.cs" t="Include" />
             <e p="Pickup.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
