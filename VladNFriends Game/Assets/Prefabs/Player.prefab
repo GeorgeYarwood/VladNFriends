@@ -672,6 +672,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3650215952639800330, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952639800330, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952639800330, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952639800330, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952639800330, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3650215952639800332, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: icon
       value: 
@@ -688,6 +708,10 @@ PrefabInstance:
       propertyPath: itemName
       value: Capsule
       objectReference: {fileID: 0}
+    - target: {fileID: 3650215952639800335, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a8d69adbbd14094ea906f26a616a904, type: 3}
     - target: {fileID: 3650215952644314544, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: icon
       value: 
@@ -704,6 +728,10 @@ PrefabInstance:
       propertyPath: itemName
       value: Cylinder
       objectReference: {fileID: 0}
+    - target: {fileID: 3650215952936745018, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c8eaa7aa772bccd40b86a0dda0453e1e, type: 3}
     - target: {fileID: 3650215953158948486, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: m_Name
       value: Sphere
