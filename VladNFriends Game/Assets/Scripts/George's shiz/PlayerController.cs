@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
 
         //Hide and lock cursor
         Cursor.lockState = CursorLockMode.Locked;
-        //keyMoveEnabled = true;
-        //mouseMoveEnabled = true; 
+        keyMoveEnabled = true;
+        mouseMoveEnabled = true; 
         canJump = true;
     }
 
