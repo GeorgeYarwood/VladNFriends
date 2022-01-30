@@ -5,20 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class UwUManager : MonoBehaviour
 {
+    public AudioSource sfx;
+    public AudioClip click;
+    
     public void LoadLevel1()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(Load(1));
     }
     public void LoadLevel2()
     {
-        SceneManager.LoadScene(2);
+        StartCoroutine(Load(2));
     }
     public void LoadCredits()
     {
-        SceneManager.LoadScene(3);
+        StartCoroutine(Load(3));
     }
     public void Quit()
     {
         Application.Quit();
+    }
+
+    IEnumerator Load(int choice)
+    {
+        sfx.clip = click;
+        sfx.Play();
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene(choice);
     }
 }
