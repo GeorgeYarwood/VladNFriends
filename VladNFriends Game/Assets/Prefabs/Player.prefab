@@ -548,6 +548,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 701669650944119158}
     m_Modifications:
+    - target: {fileID: 3650215951701798358, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215951701798358, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215951701798358, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215951701798358, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215951701798358, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3650215951701798360, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: icon
       value: 
@@ -564,6 +584,10 @@ PrefabInstance:
       propertyPath: itemName
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 3650215951701798363, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 394f55773739284438d315500e064742, type: 3}
     - target: {fileID: 3650215951891873166, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: m_text
       value: 
@@ -572,6 +596,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 3650215952125528285, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952125528285, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3650215952125528286, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -579,6 +611,14 @@ PrefabInstance:
     - target: {fileID: 3650215952402698723, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: m_Name
       value: Cylinder
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952402698724, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952402698724, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3650215952402698725, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: m_Sprite
@@ -689,6 +729,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3650215952639800330, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -112.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952639800330, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952639800330, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -712,6 +760,26 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 0a8d69adbbd14094ea906f26a616a904, type: 3}
+    - target: {fileID: 3650215952644314542, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952644314542, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952644314542, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952644314542, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215952644314542, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3650215952644314544, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: icon
       value: 
@@ -728,6 +796,10 @@ PrefabInstance:
       propertyPath: itemName
       value: Cylinder
       objectReference: {fileID: 0}
+    - target: {fileID: 3650215952644314547, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd26e15a010861745a046438b38086c1, type: 3}
     - target: {fileID: 3650215952936745018, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -736,10 +808,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere
       objectReference: {fileID: 0}
+    - target: {fileID: 3650215953158948487, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215953158948487, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3650215953158948488, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 80323a9730a37f742880d537be6a1a9f, type: 3}
+    - target: {fileID: 3650215953330793092, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215953330793092, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3650215953330793094, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: icon
       value: 
@@ -756,9 +844,21 @@ PrefabInstance:
       propertyPath: itemName
       value: Sphere
       objectReference: {fileID: 0}
+    - target: {fileID: 3650215953330793097, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ffb60a0f7eab77047a1d56e6c189a2d8, type: 3}
     - target: {fileID: 3650215953550922351, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: m_Name
       value: Capsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215953550922352, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650215953550922352, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3650215953550922353, guid: f5c20ccffc969024f9691e2a0a55804e, type: 3}
       propertyPath: m_Sprite
