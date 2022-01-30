@@ -26,6 +26,7 @@ public class Level1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         //Find our player and its character controller
         currPlayer = GameObject.FindGameObjectWithTag("Player");
         charController = currPlayer.GetComponent<PlayerController>();
@@ -33,6 +34,8 @@ public class Level1 : MonoBehaviour
         playAnim = currPlayer.GetComponentInChildren<Animator>();
         chair = GameObject.FindGameObjectWithTag("chair");
         playerRb = currPlayer.GetComponent<Rigidbody>();
+        PlayerController.mouseMoveEnabled = false;
+
         StartCoroutine(waitForAnim());
     }
 

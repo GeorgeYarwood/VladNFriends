@@ -26,6 +26,12 @@ public class PlayerController : MonoBehaviour
     static public bool keyMoveEnabled;
     static public bool mouseMoveEnabled;
 
+    private void Awake()
+    {
+        keyMoveEnabled = true;
+        mouseMoveEnabled = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +39,7 @@ public class PlayerController : MonoBehaviour
 
         //Hide and lock cursor
         Cursor.lockState = CursorLockMode.Locked;
-        keyMoveEnabled = true;
-        mouseMoveEnabled = true; 
+        
         canJump = true;
     }
 
